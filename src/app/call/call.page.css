@@ -1,0 +1,52 @@
+ion-list {
+  margin: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.centro .input-camera {
+  width: 90%;
+  height: 250px;
+  display: block;
+  text-align: center;
+  align-items: center;
+  padding: 1%;
+  border-radius: 5%;
+  border: solid white;
+  box-shadow: 0px 5px 5px 5px #bfbfbf;
+  position: relative;
+  margin-bottom: 10px;
+}
+.centro .input-camera img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.input-chamado {
+  border-radius: 50px;
+  border-style: solid;
+  border-color: white;
+  box-shadow: 0px 5px 5px 5px #bfbfbf;
+  margin: 15px 15px 20px 15px;
+}
+
+.group-localizacao .localizacao-item {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.group-localizacao .localizacao-item .input-localizacao {
+  margin: 10px 10px 15px 10px;
+  text-align: center;
+}
+.group-localizacao ion-button {
+  width: 250px;
+  margin: 10%;
+  height: 50px;
+}/*# sourceMappingURL=call.page.css.map */

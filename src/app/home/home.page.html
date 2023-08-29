@@ -1,20 +1,105 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar color="primary" style="text-align: center;">
+
+
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon>
+
+        </ion-icon>
+
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Chamados</ion-title>
+
+    <ion-buttons slot="end" (click)="presentPopover($event)">
+      
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-segment [(ngModel)]="pendingOrnot">
+    <ion-segment-button value="Pendente" layout="icon-start">
+      <ion-icon name="alert-circle"></ion-icon>
+      <ion-label>Pendente</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Resolvido" layout="icon-start">
+      <ion-icon name="checkmark-circle"></ion-icon>
+      <ion-label>Resolvido</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <!-- Lista dos Chamados Pendentes-->
+  <ion-list *ngIf="pendingOrnot == 'Pendente'">
+    <ion-item-sliding *ngFor="let chamado of chamados">
+      <ion-item lines="none" class="bordas" *ngIf="chamado.status === 'Pendente'">
+
+        {{ chamado.descricao }}
+
+        <ion-badge [ngClass]="{'baixa': chamado.prioridade === 'Baixa', 
+        'media': chamado.prioridade === 'Média', 
+        'alta': chamado.prioridade === 'Alta'}" slot="end">
+          {{ chamado.prioridade }}
+        </ion-badge>
+
+      </ion-item>
+
+      <ion-item-options side="end">
+
+        <ion-item-option color="none" (click)="editarChamado(chamado)">
+          <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="none" (click)="excluirChamado(chamado)">
+          <ion-icon name="trash" color="danger" slot="icon-only"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Lista dos Chamados Concluidos-->
+  <ion-list *ngIf="pendingOrnot == 'Resolvido'">
+    <ion-item-sliding *ngFor="let chamado of chamados">
+      <ion-item lines="none" class="bordas" *ngIf="chamado.status === 'Resolvido'">
+
+        {{ chamado.descricao }}
+
+        <ion-badge [ngClass]="{'baixa': chamado.prioridade === 'Baixa', 
+        'media': chamado.prioridade === 'Média', 
+        'alta': chamado.prioridade === 'Alta'}" slot="end">
+          {{ chamado.prioridade }}
+        </ion-badge>
+
+      </ion-item>
+
+      <ion-item-options side="end">
+
+        <ion-item-option color="none" (click)="editarChamado(chamado)">
+          <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="none" (click)="excluirChamado(chamado)">
+          <ion-icon name="trash" color="danger" slot="icon-only"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Botão para adicinar Chamados -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" routerLink="/call">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab>
 </ion-content>

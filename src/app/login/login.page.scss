@@ -1,0 +1,25 @@
+/* login.page.scss */
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #f0f0f0; /* Substitua pela cor de fundo desejada */
+    height: 100vh; /* Torna o conteúdo ocupar a altura total da tela */
+  }
+  
+  .content {
+    text-align: center; /* Centraliza o conteúdo do interior */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px; /* Espaçamento entre a imagem e o botão */
+    margin-top: 50%;
+  }
+  
+  ion-button {
+    width: 80%; /* Largura do botão */
+    max-width: 300px; /* Largura máxima do botão */
+    margin-top: 20px; /* Espaçamento entre a imagem e o botão */
+    
+  }
+  

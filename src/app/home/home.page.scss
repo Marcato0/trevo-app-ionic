@@ -25,3 +25,32 @@
 #container a {
   text-decoration: none;
 }
+
+ion-title {
+  text-align: center;
+}
+
+/* Cores das prioridades */
+.baixa {
+  background-color: green;
+}
+
+.media {
+  background-color: orange;
+}
+
+.alta {
+  background-color: red;
+}
+
+.bordas{
+  border-radius: 100px;
+    border-style: solid;
+    margin: 2%;
+    border-color: white;
+    box-shadow: #bfbfbf 1px 5px 5px;
+}
+
+ion-list{
+  margin-top: 1%;
+}

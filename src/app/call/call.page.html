@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-list>
+    <form #form="ngForm" (ngSubmit)="enviarChamado(form)">
+
+      <div class="centro">
+      <ion-item lines="none" class="input-camera" (click)="tirarFoto()">
+      
+        <img [src]="imageSource" alt="">
+        
+        
+        
+      </ion-item>
+    </div>
+    
+    
+    <ion-item lines="none" class="input-chamado">
+      <ion-input label="Descrição" label-placement="floating" id="descricao" required [(ngModel)]="descricao" name="descricao"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-chamado">
+      <ion-select label="Prioridade" label-placement="floating" id="prioridade" required [(ngModel)]="prioridade" name="prioridade">
+        <ion-select-option value="Baixa">Baixa</ion-select-option>
+        <ion-select-option value="Média">Média</ion-select-option>
+        <ion-select-option value="Alta">Alta</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="input-chamado">
+      <ion-select label="Status" label-placement="floating" id="status" required [(ngModel)]="status" name="status">
+        <ion-select-option value="Pendente" >Pendente</ion-select-option>
+        <ion-select-option value="Resolvido">Resolvido</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item-group class="group-localizacao">
+      <ion-item lines="none">
+        <ion-label lines="none">Localização</ion-label>
+      </ion-item>
+      <ion-item lines="none" class="localizacao">
+        <ion-item lines="none" class="localizacao-item">
+          <ion-input class="input-chamado input-localizacao" placeholder="Latitude" id="latitude" required [(ngModel)]="latitude" name="latitude" ></ion-input>
+          <ion-input class="input-chamado input-localizacao" placeholder="Longitude" id="longitude" required [(ngModel)]="longitude" name="longitude" ></ion-input>
+        </ion-item>
+      </ion-item>
+     
+      <ion-button shape="round" color="warning" type="submit" >Enviar Chamado</ion-button>
+
+    </ion-item-group>
+
+    
+  </form>
+  </ion-list>
+
+</ion-content>

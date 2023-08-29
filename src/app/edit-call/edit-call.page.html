@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Editar Chamado</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <form (ngSubmit)="salvarEdicao()">
+
+      <div class="centro">
+        <ion-item lines="none" class="input-camera" (click)="tirarFoto()">
+
+          <img *ngIf="chamado" [src]="imageSource" alt="">
+
+        </ion-item>
+      </div>
+
+
+      <ion-item lines="none" class="input-chamado">
+        <ion-input label="Descrição" label-placement="floating" *ngIf="chamado" [(ngModel)]="chamado.descricao"
+          name="descricao" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="input-chamado">
+
+        <ion-select label="Prioridade" label-placement="floating" *ngIf="chamado" [(ngModel)]="chamado.prioridade"
+          name="prioridade" required>
+          <ion-select-option value="Baixa">Baixa</ion-select-option>
+          <ion-select-option value="Média">Média</ion-select-option>
+          <ion-select-option value="Alta">Alta</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none" class="input-chamado">
+
+        <ion-select label="Status" label-placement="floating" *ngIf="chamado" [(ngModel)]="chamado.status" name="status"
+          required>
+          <ion-select-option value="Pendente">Pendente</ion-select-option>
+          <ion-select-option value="Resolvido">Resolvido</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item-group class="group-localizacao">
+        <ion-item lines="none">
+          <ion-label lines="none">Localização</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-item lines="none" class="localizacao-item">
+            <ion-input class="input-chamado input-localizacao" placeholder="Latitude" *ngIf="chamado"
+              [(ngModel)]="chamado.localizacao.latitude" name="latitude" required></ion-input>
+            <ion-input class="input-chamado input-localizacao" placeholder="Longitude" *ngIf="chamado"
+              [(ngModel)]="chamado.localizacao.longitude" name="longitude" required></ion-input>
+          </ion-item>
+        </ion-item>
+
+        <ion-button shape="round" color="warning" type="submit">Salvar Edição</ion-button>
+      </ion-item-group>
+
+    </form>
+  </ion-list>
+
+</ion-content>
