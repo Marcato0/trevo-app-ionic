@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -17,12 +17,12 @@ const routes: Routes = [
   {
     path: 'call',
     loadChildren: () => import('./call/call.module').then(m => m.CallPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'edit-call/:chamadoId',
     loadChildren: () => import('./edit-call/edit-call.module').then(m => m.EditCallPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'login',
